@@ -1,0 +1,22 @@
+name: GitHub Secrets Demo
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch: # Allows manual execution from the GitHub Actions tab
+
+jobs:
+  run-demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run Demo Script
+        env:
+          # This maps the GitHub Secret to an environment variable in the runner
+          MY_SECRET_TOKEN: ${{ secrets.MY_SECRET_TOKEN }}
+        run: python main.py
