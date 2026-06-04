@@ -4,6 +4,7 @@ import sys
 def main():
     # Read the secret token from environment variables
     # (Secrets should always be passed to your code via environment variables, not hardcoded!)
+    # Hi
     secret_token = os.environ.get("MY_SECRET_TOKEN")
     
     if not secret_token:
